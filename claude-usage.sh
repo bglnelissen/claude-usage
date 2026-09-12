@@ -2,10 +2,17 @@
 # b. nelissen
 # claude-usage.sh
 #
-# Reports Claude plan usage. Measures on its own, with `claude -p /usage`.
+# Reports Claude plan usage: the current session (the five hour window) and
+# the week, both as percent used. Measures with `claude -p /usage`, a local
+# Claude Code command that costs no tokens and does not count against the
+# limits. Output as JSON, as plain text, or pushed to a Secure ShellFish
+# widget on iOS.
+#
+# Requires Claude Code, signed in with a subscription, and a grep that
+# supports -P (GNU grep; the BSD grep on macOS does not). The --shellfish
+# mode also needs the Secure ShellFish shell integration in ~/.shellfishrc.
+#
 # See claude-usage.sh --help for the options.
-# Not to be confused with ~/bin/claude-usage, the Python version from the
-# claude-usage project. That one can also report the reset times; this cannot.
 
 set -eo pipefail
 
